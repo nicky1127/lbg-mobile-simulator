@@ -51,14 +51,16 @@ const tablist = [
 
 const TabList = (props) => {
   const { activeTab, onClickTab } = props;
+  const id = "tablist";
 
   return (
     <div
-      id="tablist"
+      id={id}
       className="w-full flex flex-1 flex-row justify-evenly items-stretch box-border relative pt-[5px]"
     >
       {tablist.map((el) => (
         <div
+          key={`${id}_${el.code}`}
           className="flex flex-col items-center justify-center cursor-pointer"
           onClick={() => onClickTab(el.code)}
         >

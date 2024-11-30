@@ -9,7 +9,7 @@ const ScreenContainer = () => {
     if (tab) setActiveTab(tab);
   };
   return (
-    <div className="w-screenWidth h-screenHeight min-h-[650px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto my-8 bg-gray-200">
+    <div className="w-screenWidth h-screenHeight min-h-[650px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto my-8 bg-bgColor">
       <div
         id="statusBar"
         className="absolute z-[2] left-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"

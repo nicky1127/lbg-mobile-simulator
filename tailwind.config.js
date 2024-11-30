@@ -17,6 +17,7 @@ module.exports = {
         darkGray: "#383838",
         lightGray: "#666",
         white: "#fff",
+        bgColor: "rgb(241,241,241)",
       },
       width: {
         screenWidth: "405px",

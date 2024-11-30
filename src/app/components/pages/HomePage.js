@@ -10,7 +10,7 @@ const options = ["Summary", "Everyday", "Save & Invest", "Borrow", "Insure"];
 
 const accounts = [
   {
-    title: "Club lloyds",
+    title: "Club Lloyds",
     type: "current",
     accountId: "66-66-66 / 12345678",
     balance: "£520.33",
@@ -63,7 +63,7 @@ const HomePage = () => {
         {options.map((option, index) => (
           <span
             // className=`rounded-[20px] w-[300px] text-[10px] border border-[#333] px-[10px] py-[5px] mx-[10px]
-
+            key={option}
             className={clsx(
               "rounded-[20px] w-[300px] text-[10px] border border-[#333] px-[10px] py-[5px] mx-[10px]",
               index === 0 ? "bg-[#000] text-[#fff]" : "bg-gray-200 text-[#000]"
@@ -75,7 +75,10 @@ const HomePage = () => {
       </div>
       <div id="accountWrapper">
         {accounts.map((account) => (
-          <div className="rounded-[10px] bg-white p-[10px] m-[10px] cursor-pointer">
+          <div
+            key={account.title}
+            className="rounded-[10px] bg-white p-[10px] m-[10px] cursor-pointer"
+          >
             <div className="flex justify-between">
               <div>
                 <div className="font-bold text-[14px]">{account.title}</div>
