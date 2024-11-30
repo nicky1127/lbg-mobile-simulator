@@ -8,37 +8,41 @@ import { AiOutlineCreditCard } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io";
 import { HiMiniArrowsUpDown } from "react-icons/hi2";
 
+const iconSize = "25px";
+
 const tablist = [
   {
-    icon: <GoHome style={{ color: "#000", fontSize: "35px" }} />,
-    selectedIcon: <GoHomeFill style={{ color: "#000", fontSize: "35px" }} />,
+    icon: <GoHome style={{ color: "#000", fontSize: iconSize }} />,
+    selectedIcon: <GoHomeFill style={{ color: "#000", fontSize: iconSize }} />,
     text: "Home",
     code: "home",
   },
   {
-    icon: <LiaHandPointUp style={{ color: "#000", fontSize: "30px" }} />,
-    slectedIcon: <LiaHandPointUp style={{ color: "#000", fontSize: "30px" }} />,
+    icon: <LiaHandPointUp style={{ color: "#000", fontSize: iconSize }} />,
+    selectedIcon: (
+      <LiaHandPointUp style={{ color: "#000", fontSize: iconSize }} />
+    ),
     text: "Apply",
     code: "apply",
   },
   {
-    icon: <HiMiniArrowsUpDown style={{ color: "#000", fontSize: "30px" }} />,
+    icon: <HiMiniArrowsUpDown style={{ color: "#000", fontSize: iconSize }} />,
     selectedIcon: (
-      <HiMiniArrowsUpDown style={{ color: "#000", fontSize: "30px" }} />
+      <HiMiniArrowsUpDown style={{ color: "#000", fontSize: iconSize }} />
     ),
     text: "Payments",
     code: "payments",
   },
   {
-    icon: <IoIosSearch style={{ color: "#000", fontSize: "30px" }} />,
-    selectedIcon: <IoIosSearch style={{ color: "#000", fontSize: "30px" }} />,
+    icon: <IoIosSearch style={{ color: "#000", fontSize: iconSize }} />,
+    selectedIcon: <IoIosSearch style={{ color: "#000", fontSize: iconSize }} />,
     text: "Search",
     code: "search",
   },
   {
-    icon: <AiOutlineCreditCard style={{ color: "#000", fontSize: "30px" }} />,
+    icon: <AiOutlineCreditCard style={{ color: "#000", fontSize: iconSize }} />,
     selectedIcon: (
-      <AiFillCreditCard style={{ color: "#000", fontSize: "30px" }} />
+      <AiFillCreditCard style={{ color: "#000", fontSize: iconSize }} />
     ),
     text: "Cards",
     code: "cards",
@@ -46,20 +50,22 @@ const tablist = [
 ];
 
 const TabList = (props) => {
-  const { activeTab } = props;
+  const { activeTab, onClickTab } = props;
 
-  console.log("activeTab", activeTab);
   return (
     <div
       id="tablist"
       className="w-full flex flex-1 flex-row justify-evenly items-stretch box-border relative pt-[5px]"
     >
       {tablist.map((el) => (
-        <div className="flex flex-col items-center justify-center cursor-pointer">
-          <div className="h-[30px]">
+        <div
+          className="flex flex-col items-center justify-center cursor-pointer"
+          onClick={() => onClickTab(el.code)}
+        >
+          <div className="h-[25px]">
             {activeTab === el.code ? el.selectedIcon : el.icon}
           </div>
-          <span className="text-black text-[12px]">{el.text}</span>
+          <span className="text-black text-[10px]">{el.text}</span>
         </div>
       ))}
     </div>

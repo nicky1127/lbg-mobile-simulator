@@ -5,6 +5,9 @@ import PageContainer from "./PageContainer";
 
 const ScreenContainer = () => {
   const [activeTab, setActiveTab] = useState("home");
+  const onClickTab = (tab) => {
+    if (tab) setActiveTab(tab);
+  };
   return (
     <div className="w-screenWidth h-screenHeight min-h-[650px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto my-8 bg-gray-200">
       <div
@@ -21,15 +24,15 @@ const ScreenContainer = () => {
         >
           <div
             id="contentContainer"
-            className="box-border flex items-stretch flex-col m-0 min-h-0 min-w-0 p-0 relative z-0"
+            className="box-border h-full flex items-stretch flex-col m-0 min-h-0 min-w-0 p-0 relative z-0"
           >
-            <PageContainer />
+            <PageContainer activeTab={activeTab} />
           </div>
           <div
             id="tabContainer"
             className="absolute bottom-0 w-full border-t border-t-[rgb(216,216,216)] bg-white flex pb-[2rem]"
           >
-            <TabList activeTab={activeTab} />
+            <TabList activeTab={activeTab} onClickTab={onClickTab} />
           </div>
         </div>
       </div>
