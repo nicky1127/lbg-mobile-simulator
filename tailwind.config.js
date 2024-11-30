@@ -8,8 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        defaultText: "#333333",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        ltbGreen: "#006a4d",
+        darkGray: "#383838",
+      },
+      width: {
+        screenWidth: "405px",
+      },
+      height: {
+        screenHeight: "812px",
       },
     },
   },
