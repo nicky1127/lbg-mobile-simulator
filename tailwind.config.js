@@ -13,6 +13,8 @@ module.exports = {
         foreground: "var(--foreground)",
         ltbGreen: "#006a4d",
         darkGray: "#383838",
+        lightGray: "#666",
+        white: "#fff",
       },
       width: {
         screenWidth: "405px",

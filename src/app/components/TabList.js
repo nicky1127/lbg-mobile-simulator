@@ -11,36 +11,44 @@ import { HiMiniArrowsUpDown } from "react-icons/hi2";
 const tablist = [
   {
     icon: <GoHome style={{ color: "#000", fontSize: "35px" }} />,
-    slectedIcon: <GoHomeFill style={{ color: "#000", fontSize: "35px" }} />,
+    selectedIcon: <GoHomeFill style={{ color: "#000", fontSize: "35px" }} />,
     text: "Home",
+    code: "home",
   },
   {
     icon: <LiaHandPointUp style={{ color: "#000", fontSize: "30px" }} />,
     slectedIcon: <LiaHandPointUp style={{ color: "#000", fontSize: "30px" }} />,
-    text: "Home",
+    text: "Apply",
+    code: "apply",
   },
   {
     icon: <HiMiniArrowsUpDown style={{ color: "#000", fontSize: "30px" }} />,
-    slectedIcon: (
+    selectedIcon: (
       <HiMiniArrowsUpDown style={{ color: "#000", fontSize: "30px" }} />
     ),
-    text: "Home",
+    text: "Payments",
+    code: "payments",
   },
   {
     icon: <IoIosSearch style={{ color: "#000", fontSize: "30px" }} />,
-    slectedIcon: <IoIosSearch style={{ color: "#000", fontSize: "30px" }} />,
-    text: "Home",
+    selectedIcon: <IoIosSearch style={{ color: "#000", fontSize: "30px" }} />,
+    text: "Search",
+    code: "search",
   },
   {
     icon: <AiOutlineCreditCard style={{ color: "#000", fontSize: "30px" }} />,
-    slectedIcon: (
+    selectedIcon: (
       <AiFillCreditCard style={{ color: "#000", fontSize: "30px" }} />
     ),
-    text: "Home",
+    text: "Cards",
+    code: "cards",
   },
 ];
 
-const TabList = () => {
+const TabList = (props) => {
+  const { activeTab } = props;
+
+  console.log("activeTab", activeTab);
   return (
     <div
       id="tablist"
@@ -48,8 +56,10 @@ const TabList = () => {
     >
       {tablist.map((el) => (
         <div className="flex flex-col items-center justify-center cursor-pointer">
-          <div>{el.icon}</div>
-          <span className="text-black">{el.text}</span>
+          <div className="h-[30px]">
+            {activeTab === el.code ? el.selectedIcon : el.icon}
+          </div>
+          <span className="text-black text-[12px]">{el.text}</span>
         </div>
       ))}
     </div>
