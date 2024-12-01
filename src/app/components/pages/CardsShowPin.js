@@ -1,11 +1,4 @@
 import React, { useState } from "react";
-import clsx from "clsx";
-
-import Image from "next/image";
-
-import { LiaIdCard } from "react-icons/lia";
-import { IoEyeOutline } from "react-icons/io5";
-import { IoSnow } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa6";
 
 const CardsShowPin = (props) => {
@@ -20,16 +13,20 @@ const CardsShowPin = (props) => {
 
   const maskedPin = (
     <div className="flex">
-      {["*", "*", "*", "*"].map((el) => (
-        <div className="mx-[4px] text-[35px]">{el}</div>
+      {["*", "*", "*", "*"].map((el, idx) => (
+        <div key={`maskPin_asterisk_${idx}`} className="mx-[4px] text-[35px]">
+          {el}
+        </div>
       ))}
     </div>
   );
 
   const visiblePin = (
     <div className="flex">
-      {[...focalCard.pin].map((el) => (
-        <div className="mx-[4px] text-[25px]">{el}</div>
+      {[...focalCard.pin].map((el, idx) => (
+        <div key={`visiblePin_char_${idx}`} className="mx-[4px] text-[25px]">
+          {el}
+        </div>
       ))}
     </div>
   );
@@ -53,8 +50,8 @@ const CardsShowPin = (props) => {
       </div>
       <hr className="border-t-1  border-[#333]" />
       <div className="flex flex-col items-center  p-[30px] pt-[80px] h-[74%]">
-        <div className="font-bold">{pinDom}</div>
-        <div className="flex flex-col justify-center items-center mt-[80px]">
+        <div className="font-bold h-[120px]">{pinDom}</div>
+        <div className="flex flex-col justify-center items-center">
           <div className="text-[11px] mt-[5px]">{focalCard.name}</div>
           <div className="text-[11px] mt-[5px]">{focalCard.pan}</div>
         </div>

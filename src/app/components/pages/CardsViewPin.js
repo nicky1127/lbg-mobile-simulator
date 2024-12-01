@@ -35,7 +35,7 @@ const actions = [
 ];
 
 const CardsPage = (props) => {
-  const { onClickSBack, onClickShowPin } = props;
+  const { onClickBack, onClickShowPin } = props;
   const id = "cardsPage_overview";
   return (
     <div id={id} className="flex flex-col h-full relative">
@@ -46,7 +46,7 @@ const CardsPage = (props) => {
         <FaArrowLeft
           className="cursor-pointer"
           style={{ color: "#333", fontSize: "20px" }}
-          onClick={onClickSBack}
+          onClick={onClickBack}
         />
         <div id="headerContainer" className="text-defaultText font-bold">
           View PIN

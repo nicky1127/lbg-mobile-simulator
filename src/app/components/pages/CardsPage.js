@@ -34,7 +34,7 @@ const CardsPage = () => {
     setstage("showPin");
   };
 
-  const onClickSBack = () => {
+  const onClickBack = () => {
     setstage("overview");
   };
   return (
@@ -45,11 +45,11 @@ const CardsPage = () => {
       {stage === "viewPin" && (
         <CardsViewPin
           onClickShowPin={onClickShowPin}
-          onClickSBack={onClickSBack}
+          onClickBack={onClickBack}
         />
       )}
       {stage === "showPin" && (
-        <CardsShowPin onClickBack={onClickSBack} focalCard={focalCard} />
+        <CardsShowPin onClickBack={onClickBack} focalCard={focalCard} />
       )}
     </div>
   );
