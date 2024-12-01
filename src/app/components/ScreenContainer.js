@@ -7,7 +7,7 @@ import StatementsPage from "./pages/StatementsPage";
 
 const ScreenContainer = () => {
   const [activeTab, setActiveTab] = useState("home");
-  const [isInitiationComplete, setIsInitiationComplete] = useState(true);
+  const [isInitiationComplete, setIsInitiationComplete] = useState(false);
 
   const [stage, setStage] = useState("tabs");
   const onClickTab = (tab) => {
