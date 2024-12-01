@@ -57,17 +57,17 @@ const AccountTransactions = (props) => {
           onClick={onClickBack}
         />
         <div id="greetingContainer" className=" flex items-center">
-          <span className="text-defaultText font-bold flex items-center mr-[3px]">
+          <span className="text-defaultText font-bold flex items-center mr-[3px] font-sans text-[14px]">
             {focalAccount?.title}
           </span>
           <IoMdInformationCircle
             className="cursor-pointer"
-            style={{ color: "#333", fontSize: "20px" }}
+            style={{ color: "#333", fontSize: "18px" }}
           />
         </div>
         <div
           id={`${id}_iconwrapper`}
-          className="flex w-[60px] justify-between absolute right-[15px]"
+          className="flex w-[50px] justify-between absolute right-[15px]"
         >
           <FaRegCircleQuestion
             className="cursor-pointer"
@@ -89,10 +89,12 @@ const AccountTransactions = (props) => {
             </span>
             <span className="text-[10px] mt-[-8px]">Balance after pending</span>
           </div>
-          <div className="flex flex-col w-[50%]">
-            <span className=" text-[15px]">{focalAccount.overdraft}</span>
-            <span className="text-[10px] mt-[-2px]">Overdraft limit</span>
-          </div>
+          {focalAccount.type === "current" && (
+            <div className="flex flex-col w-[50%]">
+              <span className=" text-[15px]">{focalAccount.overdraft}</span>
+              <span className="text-[10px] mt-[-2px]">Overdraft limit</span>
+            </div>
+          )}
         </div>
         <div className="w-full bg-ltbGreen flex items-center justify-between px-[10px] py-[8px]">
           <span className=" text-white text-[11px]">

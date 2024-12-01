@@ -28,7 +28,7 @@ const ScreenContainer = () => {
   };
 
   return (
-    <div className="w-screenWidth h-screenHeight min-h-[650px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto my-8 bg-bgColor">
+    <div className="w-screenWidth h-screenHeight min-h-[500px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto md:my-8 bg-bgColor">
       {!isInitiationComplete ? (
         <InitiationScreen />
       ) : (

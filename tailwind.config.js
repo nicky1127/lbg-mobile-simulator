@@ -23,7 +23,7 @@ module.exports = {
         screenWidth: "405px",
       },
       height: {
-        screenHeight: "812px",
+        screenHeight: "800px",
       },
       fontFamily: {
         sans: ["Playfair Display", "serif"],

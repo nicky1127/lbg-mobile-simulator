@@ -34,12 +34,72 @@ export const accounts = [
     type: "savings",
     accountId: "66-66-66 / 12345678",
     balance: "£120.10",
+    transactions: [
+      {
+        date: "Thu 28 November",
+        description: " UNITED UTILITIES W",
+        type: "deb",
+        amount: "£32.05",
+        balance: "£1,034.32",
+        icon: "direct-debit",
+      },
+      {
+        date: "Wed 27 November",
+        description: "J Bond",
+        type: "cre",
+        amount: "£705.00",
+        balance: "£1,066.37",
+        icon: "transfer",
+      },
+    ],
   },
   {
     title: "Club Lloyds Advantage ISA Saver",
     type: "savings",
     accountId: "66-66-66 / 12345678",
-    balance: "£7429.10",
+    balance: "£7,429.10",
+    transactions: [
+      {
+        date: "Thu 28 November",
+        description: " UNITED UTILITIES W",
+        type: "deb",
+        amount: "£32.05",
+        balance: "£1,034.32",
+        icon: "direct-debit",
+      },
+      {
+        date: "Wed 27 November",
+        description: "J Bond",
+        type: "cre",
+        amount: "£705.00",
+        balance: "£1,066.37",
+        icon: "transfer",
+      },
+    ],
+  },
+  {
+    title: "Personal Pension",
+    type: "pension",
+    accountId: "42312423",
+    balance: "£1,234.00",
+    transactions: [
+      {
+        date: "Thu 28 November",
+        description: " UNITED UTILITIES W",
+        type: "deb",
+        amount: "£32.05",
+        balance: "£1,034.32",
+        icon: "direct-debit",
+      },
+      {
+        date: "Wed 27 November",
+        description: "J Bond",
+        type: "cre",
+        amount: "£705.00",
+        balance: "£1,066.37",
+        icon: "transfer",
+      },
+    ],
   },
 ];
 

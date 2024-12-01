@@ -68,10 +68,23 @@ const AccountOverview = (props) => {
             onClick={() => onClickAccount(account)}
           >
             <div className="flex justify-between">
-              <div>
-                <div className="font-bold text-[12px]">{account.title}</div>
-                <div className="text-[12px] text-lightGray">
-                  {account.accountId}
+              <div className="flex items-center">
+                {account.type === "pension" && (
+                  <div className="border border-gray-500 rounded-[5px] w-[25px] h-[25px] relative overflow-hidden mr-[10px]">
+                    <Image
+                      src="/images/scottish-widow-logo.webp" // Path to the local image (public directory)
+                      alt="My Image" // Alt text for the image
+                      layout="fill" // This makes the image fill its parent container
+                      objectFit="cover" // Ensures the image covers the area, without stretching it
+                      objectPosition="center"
+                    />
+                  </div>
+                )}
+                <div>
+                  <div className="font-bold text-[12px]">{account.title}</div>
+                  <div className="text-[12px] text-lightGray">
+                    {account.accountId}
+                  </div>
                 </div>
               </div>
               <div className="font-sans font-bold text-[20px]">
@@ -101,7 +114,7 @@ const AccountOverview = (props) => {
           height={80} // Height of the image
         />
       </div>
-      <div className="flex items-center w-full justify-center absolute bottom-[100px]">
+      <div className="flex items-center w-full justify-center ">
         <Image
           src="/images/all_caught_up.jpeg" // Path to the local image (public directory)
           alt="My Image" // Alt text for the image
