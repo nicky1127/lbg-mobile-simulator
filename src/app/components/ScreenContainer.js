@@ -3,22 +3,17 @@ import React, { useState, useEffect } from "react";
 import TabList from "./TabList";
 import PageContainer from "./PageContainer";
 import InitiationScreen from "./InitiationScreen";
+import InactiveScreen from "./InactiveScreen";
 import StatementsPage from "./pages/StatementsPage";
 
 const ScreenContainer = () => {
   const [activeTab, setActiveTab] = useState("home");
-  const [isInitiationComplete, setIsInitiationComplete] = useState(false);
+  const [appStatus, setAppStatus] = useState("inactive");
 
   const [stage, setStage] = useState("tabs");
   const onClickTab = (tab) => {
     if (tab) setActiveTab(tab);
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsInitiationComplete(true);
-    }, 2000);
-  }, []);
 
   const onClickViewStatements = () => {
     setStage("statements");
@@ -27,12 +22,23 @@ const ScreenContainer = () => {
     setStage("tabs");
   };
 
+  const onClickStart = () => {
+    setAppStatus("initiating");
+
+    setTimeout(() => {
+      setAppStatus("active");
+    }, 3000);
+  };
+
   return (
     <div className="w-screenWidth h-screenHeight min-h-[500px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto md:my-8 bg-bgColor">
-      {!isInitiationComplete ? (
-        <InitiationScreen />
-      ) : (
-        <>
+      {appStatus === "inactive" && (
+        <InactiveScreen onClickStart={onClickStart} />
+      )}
+      {appStatus === "initiating" && <InitiationScreen />}
+
+      {appStatus === "active" && (
+        <div className="animate-fadeIn h-full w-full">
           <div
             id="statusBar"
             className="absolute z-[2] left-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"
@@ -77,7 +83,7 @@ const ScreenContainer = () => {
               )}
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

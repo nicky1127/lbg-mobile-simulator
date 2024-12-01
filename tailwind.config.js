@@ -7,6 +7,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "50%": { opacity: "1" },
+          "60%": { opacity: "0.8" },
+          "75%": { opacity: "0.5" },
+          "100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 1s ease-in-out",
+        fadeOut: "fadeOut 4s ease-in-out",
+      },
       colors: {
         defaultText: "#333",
         background: "var(--background)",
@@ -27,6 +44,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Playfair Display", "serif"],
+        serif: ["Lato", "sans-serif"],
       },
       lineHeight: {
         "extra-tight": "1",
