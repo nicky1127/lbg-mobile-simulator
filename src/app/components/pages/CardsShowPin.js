@@ -14,7 +14,10 @@ const CardsShowPin = (props) => {
   const maskedPin = (
     <div className="flex">
       {["*", "*", "*", "*"].map((el, idx) => (
-        <div key={`maskPin_asterisk_${idx}`} className="mx-[4px] text-[35px]">
+        <div
+          key={`maskPin_asterisk_${idx}`}
+          className="mx-[4px] text-[35px] font-sans"
+        >
           {el}
         </div>
       ))}
@@ -36,24 +39,26 @@ const CardsShowPin = (props) => {
     <div id={id} className="flex flex-col h-full relative">
       <div
         id="home_header"
-        className="px-[20px] flex justify-center py-[10px] items-center justify-between"
+        className="px-[20px] flex justify-center py-[10px] items-center "
       >
         <FaArrowLeft
-          className="cursor-pointer"
+          className="cursor-pointer absolute left-[15px]"
           style={{ color: "#333", fontSize: "20px" }}
           onClick={onClickBack}
         />
         <div id="headerContainer" className="text-defaultText font-bold">
           View PIN
         </div>
-        <div></div>
+        {/* <div></div> */}
       </div>
       <hr className="border-t-1  border-[#333]" />
       <div className="flex flex-col items-center  p-[30px] pt-[80px] h-[74%]">
         <div className="font-bold h-[120px]">{pinDom}</div>
         <div className="flex flex-col justify-center items-center">
-          <div className="text-[11px] mt-[5px]">{focalCard.name}</div>
-          <div className="text-[11px] mt-[5px]">{focalCard.pan}</div>
+          <div className="text-[14px] mt-[5px]">{focalCard.name}</div>
+          <div className="text-[14px] mt-[5px] font-bold font-sans">
+            {focalCard.pan}
+          </div>
         </div>
         <div />
       </div>
@@ -61,7 +66,7 @@ const CardsShowPin = (props) => {
       <div id="applePayBtn Wrapper" className=" flex justify-center w-full">
         <div
           onClick={onClickPinBtn}
-          className="flex justify-center bg-[#000] w-[90%] p-[10px] m-[20px] rounded-[10px] cursor-pointer text-[#fff] text-[13px]"
+          className="flex justify-center bg-[#000] w-[90%] p-[10px] m-[20px] font-bold rounded-[10px] cursor-pointer text-[#fff] text-[13px]"
         >
           {showPin ? "Hide PIN" : "Show PIN"}
         </div>

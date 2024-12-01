@@ -25,6 +25,9 @@ module.exports = {
       height: {
         screenHeight: "812px",
       },
+      fontFamily: {
+        sans: ["Playfair Display", "serif"],
+      },
     },
   },
   plugins: [],

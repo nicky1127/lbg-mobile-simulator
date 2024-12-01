@@ -41,10 +41,10 @@ const CardsPage = (props) => {
     <div id={id} className="flex flex-col h-full relative">
       <div
         id="home_header"
-        className="px-[20px] flex justify-center py-[10px] items-center justify-between"
+        className="px-[20px] flex justify-center py-[10px] items-center "
       >
         <FaArrowLeft
-          className="cursor-pointer"
+          className="cursor-pointer absolute left-[15px]"
           style={{ color: "#333", fontSize: "20px" }}
           onClick={onClickBack}
         />
@@ -70,7 +70,7 @@ const CardsPage = (props) => {
 
       <div id="applePayBtn Wrapper" className=" flex justify-center w-full">
         <div
-          className="flex justify-center bg-[#000] w-[90%] p-[10px] m-[20px] rounded-[10px] cursor-pointer text-[#fff] text-[13px]"
+          className="flex justify-center bg-[#000] w-[90%] p-[10px] m-[20px] rounded-[10px] font-bold cursor-pointer text-[#fff] text-[13px]"
           onClick={onClickShowPin}
         >
           Show PIN

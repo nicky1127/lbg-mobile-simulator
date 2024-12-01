@@ -1,14 +1,12 @@
 import React from "react";
-import { GoMail } from "react-icons/go";
-import { CiCircleQuestion } from "react-icons/ci";
-import { GrUserSettings } from "react-icons/gr";
-import { FaRegCircleQuestion } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
+import Image from "next/image";
 import clsx from "clsx";
 
 import { LiaIdCard } from "react-icons/lia";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoSnow } from "react-icons/io5";
+import { MdOutlineCreditCardOff } from "react-icons/md";
+import { MdOutlineAddCard } from "react-icons/md";
 
 const iconSize = "20px";
 
@@ -25,6 +23,16 @@ const actions = [
     title: "Card freezes and limits",
     icon: <IoSnow style={{ color: "#000", fontSize: iconSize }} />,
   },
+  {
+    title: "Lost or stolen card",
+    icon: (
+      <MdOutlineCreditCardOff style={{ color: "#000", fontSize: iconSize }} />
+    ),
+  },
+  {
+    title: "Replace card",
+    icon: <MdOutlineAddCard style={{ color: "#000", fontSize: iconSize }} />,
+  },
 ];
 
 const CardsPage = (props) => {
@@ -36,7 +44,6 @@ const CardsPage = (props) => {
     console.log("title", title);
     switch (title) {
       case "View PIN":
-        console.log("=======>");
         return onClickViewPin();
     }
   };
@@ -56,7 +63,7 @@ const CardsPage = (props) => {
         {cards.map((card) => (
           <div
             key={card.title}
-            className="bg-ltbGreen3 w-[200px] h-[130px] shadow-[10px_8px_20px_rgba(0,0,0,0.4)] rounded-[10px] px-[10px] py-[10px] flex flex-col justify-between"
+            className="bg-ltbGreen3 w-[210px] h-[130px] shadow-[10px_8px_20px_rgba(0,0,0,0.4)] rounded-[10px] px-[10px] py-[10px] flex flex-col justify-between"
           >
             <div className="text-[12px]">{card.title}</div>
             <div className="flex justify-center text-[16px]">{card.pan}</div>
@@ -66,10 +73,14 @@ const CardsPage = (props) => {
                 <span className="text-[10px]">{card.cardHolder}</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-[16px]">VISA</span>
-                <span className="text-[8px] mt-[-5px] flex justify-end">
-                  {card.type}
-                </span>
+                {/* <span className="text-[16px] font-bold font-sans">VISA</span> */}
+                <Image
+                  src="/images/visa.png" // Path to the local image (public directory)
+                  alt="My Image" // Alt text for the image
+                  width={40} // Width of the image
+                  height={15} // Height of the image
+                />
+                <span className="text-[8px] flex justify-end">{card.type}</span>
               </div>
             </div>
           </div>
@@ -77,12 +88,12 @@ const CardsPage = (props) => {
       </div>
       <div id="actionWrapper" className=" bg-white p-[10px] flex-1  ">
         <div id="applePayBtn Wrapper" className=" flex justify-center w-full">
-          <div className="flex justify-center bg-[#000] w-[90%] p-[10px] m-[20px] rounded-[10px] cursor-pointer text-[#fff] text-[13px]">
+          <div className="flex justify-center bg-[#000] w-[90%] p-[10px] m-[20px] font-bold rounded-[10px] cursor-pointer text-[#fff] text-[13px]">
             Apple Pay
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-4 p-[10px]">
+        <div className="grid grid-cols-3 gap-x-4  gap-y-6 px-[0px] py-[10px]">
           {actions.map((action) => (
             <div
               key={`${id}_${action.title}`}
@@ -92,7 +103,7 @@ const CardsPage = (props) => {
               <div className=" border-2 border-gray-400 rounded-full p-[10px]">
                 {action.icon}
               </div>
-              <span className="mt-[5px] text-[9px]">{action.title}</span>
+              <span className="mt-[5px] text-[10px]">{action.title}</span>
             </div>
           ))}
         </div>

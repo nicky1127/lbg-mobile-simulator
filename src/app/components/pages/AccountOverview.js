@@ -1,4 +1,6 @@
 import React from "react";
+
+import Image from "next/image";
 import { GoMail } from "react-icons/go";
 import { CiCircleQuestion } from "react-icons/ci";
 import { GrUserSettings } from "react-icons/gr";
@@ -13,19 +15,25 @@ const AccountOverview = (props) => {
   const { onClickAccount } = props;
   const id = "AccountOverview_account_overview";
   return (
-    <div id={id}>
+    <div id={id} className="h-full relative">
       <div
         id="home_header"
-        className="px-[20px] flex justify-between py-[10px] items-center"
+        className="px-[20px] flex justify-center py-[10px] items-center relative"
       >
         <GoMail
-          className="cursor-pointer"
+          className="cursor-pointer absolute left-[15px]"
           style={{ color: "#333", fontSize: "20px" }}
         />
-        <div id="greetingContainer" className="text-defaultText font-bold">
+        <div
+          id="greetingContainer"
+          className="text-defaultText font-bold font-sans"
+        >
           {`Good afternoon ${customerDetails.firstname}`}
         </div>
-        <div id={`${id}_iconwrapper`} className="flex w-[50px] justify-between">
+        <div
+          id={`${id}_iconwrapper`}
+          className="flex w-[60px] justify-between absolute right-[15px]"
+        >
           <FaRegCircleQuestion
             className="cursor-pointer"
             style={{ color: "#333", fontSize: "20px" }}
@@ -44,8 +52,8 @@ const AccountOverview = (props) => {
         {options.map((option, index) => (
           <div
             key={option}
-            className={`flex-[0_0_25%]  whitespace-nowrap flex justify-center rounded-[8px] text-[9px] border border-[#333] px-[10px] py-[5px] mx-[7px] ${
-              index === 0 ? "bg-black text-[#fff]" : "bg-gray-200 text-[#000]"
+            className={`flex-[0_0_25%]  whitespace-nowrap flex justify-center rounded-[8px] text-[11px] border border-[#333] px-[10px] py-[5px] mx-[7px] ${
+              index === 0 ? "bg-black text-[#fff]" : "bg-bgColor text-[#000]"
             } `}
           >
             {option}
@@ -56,17 +64,19 @@ const AccountOverview = (props) => {
         {accounts.map((account) => (
           <div
             key={account.title}
-            className="rounded-[10px] bg-white p-[10px] m-[10px] cursor-pointer"
+            className="rounded-[10px] bg-white p-[15px] m-[10px] cursor-pointer"
             onClick={() => onClickAccount(account)}
           >
             <div className="flex justify-between">
               <div>
-                <div className="font-bold text-[14px]">{account.title}</div>
+                <div className="font-bold text-[12px]">{account.title}</div>
                 <div className="text-[12px] text-lightGray">
                   {account.accountId}
                 </div>
               </div>
-              <div>{account.balance}</div>
+              <div className="font-sans font-bold text-[20px]">
+                {account.balance}
+              </div>
             </div>
             {account.type === "current" && (
               <>
@@ -80,6 +90,24 @@ const AccountOverview = (props) => {
             )}
           </div>
         ))}
+      </div>
+
+      <div className="flex items-center w-full justify-center ">
+        <Image
+          src="/images/overdraft.jpg" // Path to the local image (public directory)
+          alt="My Image" // Alt text for the image
+          // fill
+          width={360} // Width of the image
+          height={80} // Height of the image
+        />
+      </div>
+      <div className="flex items-center w-full justify-center absolute bottom-[100px]">
+        <Image
+          src="/images/all_caught_up.jpeg" // Path to the local image (public directory)
+          alt="My Image" // Alt text for the image
+          width={80} // Width of the image
+          height={80} // Height of the image
+        />
       </div>
     </div>
   );
