@@ -19,7 +19,7 @@ const options = ["Summary", "Everyday", "Save & Invest", "Borrow", "Insure"];
 const tabs = ["September", "October", "November", "All", ""];
 
 const AccountTransactions = (props) => {
-  const { focalAccount, onClickBack } = props;
+  const { focalAccount, onClickBack, onClickViewStatements } = props;
   const id = "homePage_account_overview";
   const [selectedTab, setSelectedTab] = useState(tabs.length - 2);
   const tabsRef = useRef(null);
@@ -150,6 +150,7 @@ const AccountTransactions = (props) => {
               <GrDocumentDownload
                 className="cursor-pointer"
                 style={{ color: "#333", fontSize: "20px" }}
+                onClick={onClickViewStatements}
               />
               <IoSearchOutline
                 className="cursor-pointer"

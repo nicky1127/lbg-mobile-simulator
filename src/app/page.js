@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ScreenContainer from "./components/ScreenContainer";
 
 export default function Home() {

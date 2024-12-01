@@ -42,3 +42,40 @@ export const accounts = [
     balance: "£7429.10",
   },
 ];
+
+export const monthsList = [
+  {
+    year: "2024",
+    months: [
+      "December",
+      "November",
+      "October",
+      "September",
+      "August",
+      "July",
+      "June",
+      "May",
+      "April",
+      "March",
+      "February",
+      "January",
+    ],
+  },
+  {
+    year: "2023",
+    months: [
+      "December",
+      "November",
+      "October",
+      "September",
+      "August",
+      "July",
+      "June",
+      "May",
+      "April",
+      "March",
+      "February",
+      "January",
+    ],
+  },
+];

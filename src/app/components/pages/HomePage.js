@@ -9,12 +9,13 @@ import clsx from "clsx";
 import AccountOverview from "./AccountOverview";
 import AccountTransactions from "./AccountTransactions";
 
-const HomePage = () => {
+const HomePage = (props) => {
+  const { onClickViewStatements } = props;
   const id = "homePage";
   const [stage, setStage] = useState("overview");
   const [focalAccount, setFocalAccount] = useState({});
 
-  const onClickBack = (account) => {
+  const onClickBack = () => {
     setStage("overview");
   };
 
@@ -33,6 +34,7 @@ const HomePage = () => {
         <AccountTransactions
           focalAccount={focalAccount}
           onClickBack={onClickBack}
+          onClickViewStatements={onClickViewStatements}
         />
       )}
       {/* {stage === "showPin" && (

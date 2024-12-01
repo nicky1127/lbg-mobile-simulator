@@ -28,6 +28,9 @@ module.exports = {
       fontFamily: {
         sans: ["Playfair Display", "serif"],
       },
+      lineHeight: {
+        "extra-tight": "1",
+      },
     },
   },
   plugins: [],

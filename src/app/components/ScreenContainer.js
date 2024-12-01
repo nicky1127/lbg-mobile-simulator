@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import TabList from "./TabList";
 import PageContainer from "./PageContainer";
 import InitiationScreen from "./InitiationScreen";
+import StatementsPage from "./pages/StatementsPage";
 
 const ScreenContainer = () => {
   const [activeTab, setActiveTab] = useState("home");
-  const [isInitiationComplete, setIsInitiationComplete] = useState(false);
+  const [isInitiationComplete, setIsInitiationComplete] = useState(true);
+
+  const [stage, setStage] = useState("tabs");
   const onClickTab = (tab) => {
     if (tab) setActiveTab(tab);
   };
@@ -16,6 +19,13 @@ const ScreenContainer = () => {
       setIsInitiationComplete(true);
     }, 1000);
   }, []);
+
+  const onClickViewStatements = () => {
+    setStage("statements");
+  };
+  const onClickCloseStatements = () => {
+    setStage("tabs");
+  };
 
   return (
     <div className="w-screenWidth h-screenHeight min-h-[650px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto my-8 bg-bgColor">
@@ -35,18 +45,36 @@ const ScreenContainer = () => {
               id="mainWrapper"
               className="w-full box-border flex items-stretch flex-col m-0 min-h-0 min-w-0 p-0 relative z-0"
             >
-              <div
-                id="contentContainer"
-                className="box-border h-full flex items-stretch flex-col m-0 min-h-0 min-w-0 p-0 relative z-0"
-              >
-                <PageContainer activeTab={activeTab} />
-              </div>
-              <div
-                id="tabContainer"
-                className="absolute bottom-0 w-full border-t border-t-[rgb(216,216,216)] bg-white flex pb-[2rem]"
-              >
-                <TabList activeTab={activeTab} onClickTab={onClickTab} />
-              </div>
+              {stage === "statements" && (
+                <div
+                  id="contentContainer"
+                  className="box-border h-full flex items-stretch pt-[30px] flex-col m-0 min-h-0 min-w-0 p-0 relative z-0"
+                >
+                  <StatementsPage
+                    onClickCloseStatements={onClickCloseStatements}
+                  />
+                </div>
+              )}
+
+              {stage === "tabs" && (
+                <>
+                  <div
+                    id="contentContainer"
+                    className="box-border h-full flex items-stretch flex-col m-0 min-h-0 min-w-0 p-0 relative z-0"
+                  >
+                    <PageContainer
+                      activeTab={activeTab}
+                      onClickViewStatements={onClickViewStatements}
+                    />
+                  </div>
+                  <div
+                    id="tabContainer"
+                    className="absolute bottom-0 w-full border-t border-t-[rgb(216,216,216)] bg-white flex pb-[2rem]"
+                  >
+                    <TabList activeTab={activeTab} onClickTab={onClickTab} />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </>
