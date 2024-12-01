@@ -58,19 +58,17 @@ const TabList = (props) => {
   return (
     <div
       id={id}
-      className="w-full flex flex-1 flex-row justify-evenly items-stretch box-border relative pt-[5px]"
+      className="w-full flex flex-1 flex-row justify-evenly items-stretch box-border relative pt-[5px] "
     >
       {tablist.map((el, index) => (
         <div
           key={`${id}_${el.code}`}
-          className={`flex flex-col items-center justify-center cursor-pointer p-[5px]  ${
-            // index === isHighlighted &&
-            // "border-2 border-flashBorder rounded-[5px]"
-            index === isHighlighted &&
-            "border-2 rounded-[5px] animate-flashingBorder"
+          className={`flex flex-col items-center justify-center cursor-pointer p-[5px] border-2  rounded-[5px] border-[#fff] ${
+            // index === isHighlighted && "border-flashBorder border-2"
+            index === isHighlighted && " animate-flashingBorder"
           }`}
           onClick={() => {
-            setIsHighlighted(4);
+            setIsHighlighted(index);
             onClickTab(el.code);
           }}
         >

@@ -20,8 +20,9 @@ module.exports = {
           "100%": { opacity: "0" },
         },
         flash: {
-          "0%, 100%": { borderColor: "transparent" },
-          "50%": { borderColor: "rgb(96, 165, 250)" },
+          // "0%, 100%": { borderColor: "transparent" },
+          // "50%": { borderColor: "rgb(96, 165, 250)" },
+          "0%, 100%": { borderColor: "rgb(96, 165, 250)" },
         },
       },
       animation: {

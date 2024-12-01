@@ -32,20 +32,19 @@ const ScreenContainer = () => {
 
   return (
     <div className="w-screenWidth h-screenHeight min-h-[500px] relative border-[15px] border-solid border-darkGray rounded-[60px] overflow-hidden m-auto md:my-8 bg-bgColor">
-      {appStatus === "inactive" && (
-        <InactiveScreen onClickStart={onClickStart} />
-      )}
-      {appStatus === "initiating" && <InitiationScreen />}
-
-      {appStatus === "active" && (
-        <div className="animate-fadeIn h-full w-full">
-          <div
-            id="statusBar"
-            className="absolute z-[2] left-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"
-          />
+      <div className="h-full w-full">
+        <div
+          id="statusBar"
+          className="absolute z-[2] left-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"
+        />
+        {appStatus === "inactive" && (
+          <InactiveScreen onClickStart={onClickStart} />
+        )}
+        {appStatus === "initiating" && <InitiationScreen />}
+        {appStatus === "active" && (
           <div
             id="mainContainer"
-            className="max-w-full max-h-full h-full flex relative z=[1]"
+            className="animate-fadeIn max-w-full max-h-full h-full flex relative z=[1]"
           >
             <div
               id="mainWrapper"
@@ -83,8 +82,8 @@ const ScreenContainer = () => {
               )}
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

@@ -18,10 +18,6 @@ const InitiationScreen = () => {
 
   return (
     <div className=" animate-fadeOut flex items-center w-full justify-center ">
-      <div
-        id="statusBar"
-        className="absolute z-[2] left-0 top-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"
-      />
       <Image
         src="/images/InitialScreen.jpg" // Path to the local image (public directory)
         alt="My Image" // Alt text for the image
