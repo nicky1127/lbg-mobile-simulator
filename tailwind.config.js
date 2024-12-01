@@ -28,7 +28,7 @@ module.exports = {
       animation: {
         fadeIn: "fadeIn 1s ease-in-out",
         fadeOut: "fadeOut 4s ease-in-out",
-        flashingBorder: "flash 1s infinite",
+        // flashingBorder: "flash 1s infinite",
       },
       colors: {
         defaultText: "#333",

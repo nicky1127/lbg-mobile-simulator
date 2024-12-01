@@ -63,10 +63,9 @@ const TabList = (props) => {
       {tablist.map((el, index) => (
         <div
           key={`${id}_${el.code}`}
-          className={`flex flex-col items-center justify-center cursor-pointer p-[5px] border-2  rounded-[5px] border-[#fff] ${
-            // index === isHighlighted && "border-flashBorder border-2"
-            index === isHighlighted && " animate-flashingBorder"
-          }`}
+          className={`flex flex-col items-center justify-center cursor-pointer p-[5px] border-2  rounded-[5px] border-[#fff] 
+						// ${index === isHighlighted && " animate-flashingBorder"}
+						`}
           onClick={() => {
             setIsHighlighted(index);
             onClickTab(el.code);
