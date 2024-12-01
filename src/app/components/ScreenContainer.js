@@ -42,7 +42,7 @@ const ScreenContainer = () => {
           <div
             id="statusBar"
             className="absolute z-[2] left-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"
-          ></div>
+          />
           <div
             id="mainContainer"
             className="max-w-full max-h-full h-full flex relative z=[1]"

@@ -7,7 +7,11 @@ import Image from "next/image";
 const InitiationScreen = (props) => {
   const { onClickStart } = props;
   return (
-    <div className="flex flex-col items-center w-full h-full justify-center bg-ltbGreen2">
+    <div className="flex flex-col items-center w-full h-full justify-center bg-ltbGreen2 animate-fadeIn relative">
+      <div
+        id="statusBar"
+        className="absolute z-[2] left-0 top-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"
+      />
       <Image
         src="/images/lbg_banner.jpg" // Path to the local image (public directory)
         alt="My Image" // Alt text for the image

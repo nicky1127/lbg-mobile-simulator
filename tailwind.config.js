@@ -19,10 +19,15 @@ module.exports = {
           "75%": { opacity: "0.5" },
           "100%": { opacity: "0" },
         },
+        flash: {
+          "0%, 100%": { borderColor: "transparent" },
+          "50%": { borderColor: "rgb(96, 165, 250)" },
+        },
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in-out",
         fadeOut: "fadeOut 4s ease-in-out",
+        flashingBorder: "flash 1s infinite",
       },
       colors: {
         defaultText: "#333",
@@ -35,6 +40,7 @@ module.exports = {
         lightGray: "#666",
         white: "#fff",
         bgColor: "rgb(241,241,241)",
+        flashBorder: "rgb(96, 165, 250)",
       },
       width: {
         screenWidth: "405px",

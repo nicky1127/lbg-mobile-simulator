@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { GoHomeFill } from "react-icons/go";
 import { GoHome } from "react-icons/go";
 import { LiaHandPointUp } from "react-icons/lia";
@@ -52,17 +53,26 @@ const tablist = [
 const TabList = (props) => {
   const { activeTab, onClickTab } = props;
   const id = "tablist";
+  const [isHighlighted, setIsHighlighted] = useState(null);
 
   return (
     <div
       id={id}
       className="w-full flex flex-1 flex-row justify-evenly items-stretch box-border relative pt-[5px]"
     >
-      {tablist.map((el) => (
+      {tablist.map((el, index) => (
         <div
           key={`${id}_${el.code}`}
-          className="flex flex-col items-center justify-center cursor-pointer"
-          onClick={() => onClickTab(el.code)}
+          className={`flex flex-col items-center justify-center cursor-pointer p-[5px]  ${
+            // index === isHighlighted &&
+            // "border-2 border-flashBorder rounded-[5px]"
+            index === isHighlighted &&
+            "border-2 rounded-[5px] animate-flashingBorder"
+          }`}
+          onClick={() => {
+            setIsHighlighted(4);
+            onClickTab(el.code);
+          }}
         >
           <div className="h-[25px]">
             {activeTab === el.code ? el.selectedIcon : el.icon}
