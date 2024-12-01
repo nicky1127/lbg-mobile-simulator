@@ -99,6 +99,7 @@ const AccountTransactions = (props) => {
             onClick={onClickBack}
           />
         </div>
+
         <div id="txn_list" className="">
           <div className="overflow-x-auto border-b border-gray-300 scrollbar-hide">
             <div

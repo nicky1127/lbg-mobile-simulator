@@ -39,19 +39,17 @@ const AccountOverview = (props) => {
       <hr className="border-t-1  border-[#333]" />
       <div
         id="type_options"
-        className="overflow-x-scroll w-[800px] overflow-y-hidden scrollbar-hide py-[10px] cursor-pointer"
+        className="overflow-x-scroll flex overflow-y-hidden scrollbar-hide py-[10px] cursor-pointer "
       >
         {options.map((option, index) => (
-          <span
-            // className=`rounded-[20px] w-[300px] text-[10px] border border-[#333] px-[10px] py-[5px] mx-[10px]
+          <div
             key={option}
-            className={clsx(
-              "rounded-[20px] w-[300px] text-[10px] border border-[#333] px-[10px] py-[5px] mx-[10px]",
-              index === 0 ? "bg-[#000] text-[#fff]" : "bg-gray-200 text-[#000]"
-            )}
+            className={`flex-[0_0_25%]  whitespace-nowrap flex justify-center rounded-[8px] text-[9px] border border-[#333] px-[10px] py-[5px] mx-[7px] ${
+              index === 0 ? "bg-black text-[#fff]" : "bg-gray-200 text-[#000]"
+            } `}
           >
             {option}
-          </span>
+          </div>
         ))}
       </div>
       <div id="accountWrapper">
