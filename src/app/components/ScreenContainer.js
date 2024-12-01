@@ -17,7 +17,7 @@ const ScreenContainer = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsInitiationComplete(true);
-    }, 1000);
+    }, 2000);
   }, []);
 
   const onClickViewStatements = () => {
