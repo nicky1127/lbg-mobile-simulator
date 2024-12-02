@@ -52,7 +52,7 @@ const CardsShowPin = (props) => {
         {/* <div></div> */}
       </div>
       <hr className="border-t-1  border-[#333]" />
-      <div className="flex flex-col items-center  p-[30px] pt-[80px] h-[74%]">
+      <div className="flex flex-col items-center  p-[30px] pt-[80px] h-[70%]">
         <div className="font-bold h-[120px]">{pinDom}</div>
         <div className="flex flex-col justify-center items-center">
           <div className="text-[14px] mt-[5px]">{focalCard.name}</div>
