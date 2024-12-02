@@ -64,7 +64,7 @@ const TabList = (props) => {
         <div
           key={`${id}_${el.code}`}
           className={`flex flex-col items-center justify-center cursor-pointer p-[5px] border-2  rounded-[5px] border-[#fff] 
-						// ${index === isHighlighted && " animate-flashingBorder"}
+						${index === isHighlighted && " animate-flashingBorder"}
 						`}
           onClick={() => {
             setIsHighlighted(index);

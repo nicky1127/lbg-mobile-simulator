@@ -20,15 +20,15 @@ module.exports = {
           "100%": { opacity: "0.3" },
         },
         flash: {
-          // "0%, 100%": { borderColor: "transparent" },
-          // "50%": { borderColor: "rgb(96, 165, 250)" },
-          "0%, 100%": { borderColor: "rgb(96, 165, 250)" },
+          "0%, 100%": { borderColor: "transparent" },
+          "50%": { borderColor: "rgb(96, 165, 250)" },
+          // "0%, 100%": { borderColor: "rgb(96, 165, 250)" },
         },
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in-out",
         fadeOut: "fadeOut 4s ease-in-out",
-        // flashingBorder: "flash 1s infinite",
+        flashingBorder: "flash 1s infinite",
       },
       colors: {
         defaultText: "#333",
