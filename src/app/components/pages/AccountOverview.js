@@ -73,11 +73,10 @@ const AccountOverview = (props) => {
                   {account.type === "pension" && (
                     <div className="border border-gray-500 rounded-[5px] w-[25px] h-[25px] relative overflow-hidden mr-[10px]">
                       <Image
-                        src="/images/scottish-widow-logo.webp" // Path to the local image (public directory)
-                        alt="My Image" // Alt text for the image
-                        layout="fill" // This makes the image fill its parent container
-                        objectFit="cover" // Ensures the image covers the area, without stretching it
-                        objectPosition="center"
+                        src="/images/scottish-widow-logo.webp"
+                        alt="My Image"
+                        fill
+                        style={{ objectPosition: "center", objectFit: "cover" }} // Apply object-position via style
                       />
                     </div>
                   )}

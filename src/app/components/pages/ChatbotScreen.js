@@ -7,6 +7,8 @@ import { CgSmartphoneChip } from "react-icons/cg";
 import { TbUserFilled } from "react-icons/tb";
 import clsx from "clsx";
 
+import { useGlobalContext } from "../../../context/GlobalContext";
+
 const greeting =
   "Hi, I'm Friday, your personal AI assistant. How can I help you?";
 const reply1 =
@@ -14,6 +16,8 @@ const reply1 =
 
 const ChatboxScreen = (props) => {
   const id = "chatboxScreen";
+
+  const { user, setUser } = useGlobalContext();
 
   const [messages, setMessages] = useState([
     { id: Date.now(), type: "reply", text: greeting },
