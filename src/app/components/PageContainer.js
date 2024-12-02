@@ -1,6 +1,7 @@
 import React from "react";
 import HomePage from "./pages/HomePage";
 import CardsPage from "./pages/CardsPage";
+import SearchPage from "./pages/SearchPage";
 
 const PageContainer = (props) => {
   const { activeTab, onClickViewStatements } = props;
@@ -10,6 +11,7 @@ const PageContainer = (props) => {
       {activeTab === "home" && (
         <HomePage onClickViewStatements={onClickViewStatements} />
       )}
+      {activeTab === "search" && <SearchPage />}
     </div>
   );
 };

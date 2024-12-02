@@ -13,7 +13,7 @@ const options = ["Summary", "Everyday", "Save & Invest", "Borrow", "Insure"];
 
 const AccountOverview = (props) => {
   const { onClickAccount } = props;
-  const id = "AccountOverview_account_overview";
+  const id = "accountOverview_account_overview";
   return (
     <div id={id} className="h-full relative">
       <div

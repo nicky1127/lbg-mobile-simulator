@@ -24,11 +24,16 @@ module.exports = {
           "50%": { borderColor: "rgb(96, 165, 250)" },
           // "0%, 100%": { borderColor: "rgb(96, 165, 250)" },
         },
+        fadeInAi: {
+          from: { opacity: "0", transform: "translateY(10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in-out",
         fadeOut: "fadeOut 4s ease-in-out",
         flashingBorder: "flash 1s infinite",
+        fadeInAi: "fadeIn 0.3s ease",
       },
       colors: {
         defaultText: "#333",
