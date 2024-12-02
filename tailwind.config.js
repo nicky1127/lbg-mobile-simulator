@@ -15,9 +15,9 @@ module.exports = {
         fadeOut: {
           "0%": { opacity: "1" },
           "50%": { opacity: "1" },
-          "60%": { opacity: "0.8" },
-          "75%": { opacity: "0.5" },
-          "100%": { opacity: "0" },
+          // "60%": { opacity: "0.8" },
+          // "75%": { opacity: "0.5" },
+          "100%": { opacity: "0.3" },
         },
         flash: {
           // "0%, 100%": { borderColor: "transparent" },

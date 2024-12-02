@@ -54,7 +54,7 @@ const CardsPage = (props) => {
         <div></div>
       </div>
       <hr className="border-t-1  border-[#333]" />
-      <div className="flex flex-col items-center justify-center p-[30px] h-[74%]">
+      <div className="flex flex-col items-center justify-center p-[30px] h-[70%]">
         <Image
           src="/images/ltb_shield.jpeg" // Path to the local image (public directory)
           alt="My Image" // Alt text for the image
