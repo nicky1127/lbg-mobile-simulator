@@ -37,8 +37,8 @@ const tablist = [
   {
     icon: <IoIosSearch style={{ color: "#000", fontSize: iconSize }} />,
     selectedIcon: <IoIosSearch style={{ color: "#000", fontSize: iconSize }} />,
-    text: "Search",
-    code: "search",
+    text: "Assist",
+    code: "assist",
   },
   {
     icon: <AiOutlineCreditCard style={{ color: "#000", fontSize: iconSize }} />,

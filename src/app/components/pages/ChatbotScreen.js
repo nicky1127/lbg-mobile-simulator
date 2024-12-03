@@ -1,22 +1,27 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-
 import Image from "next/image";
-
 import { CgSmartphoneChip } from "react-icons/cg";
 import { TbUserFilled } from "react-icons/tb";
 import clsx from "clsx";
-
 import { useGlobalContext } from "../../../context/GlobalContext";
 
 const greeting =
   "Hi, I'm Friday, your personal AI assistant. How can I help you?";
-const reply1 =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+// Predefined responses (key-value pairs)
+const responses = {
+  "Hi, I would like to make a payment": "Of course, I can help you with that. Who would you like to make a payment to?",
+  "I would like to make a payment to Nicky Lai": "I've found Nicky Lai in your Payee List. Can you confirm these details are correct? \n\nSort-code: 12-34-56\nAccount Number: 12345678",
+  "they are correct": "Please confirm the amount you would like to transfer to Nicky Lai.",
+  "£50": "Just to confirm, you would like to transfer £50 to Nicky Lai. Is that correct?",
+  "I confirm": "Please confirm again: Do you wish to proceed with transferring £50 to Nicky Lai? Type 'Yes' to confirm or 'No' to cancel.",
+  "Yes": "Great! Your payment of £50 to Nicky Lai has now been processed.",
+  "thanks": "Goodbye! Have a great day!",
+};
 
 const ChatboxScreen = (props) => {
   const id = "chatboxScreen";
-
   const { user, setUser } = useGlobalContext();
 
   const [messages, setMessages] = useState([
@@ -39,7 +44,19 @@ const ChatboxScreen = (props) => {
       setMessages((prev) => [...prev, userMessage]);
       setInput("");
 
-      setTimeout(() => simulateAiResponse(reply1), 1000);
+      // Check for a response that contains the user input
+      const userMessageLower = input.toLowerCase();
+      let response = "I'm not sure how to respond to that."; // Default response
+
+      // Iterate through the responses object and check if any key contains the user input
+      for (const key in responses) {
+        if (responses.hasOwnProperty(key) && key.toLowerCase().includes(userMessageLower)) {
+          response = responses[key];
+          break; // Stop once a matching response is found
+        }
+      }
+
+      setTimeout(() => simulateAiResponse(response), 1000);
     }
   };
 
