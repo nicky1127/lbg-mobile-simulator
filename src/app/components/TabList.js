@@ -11,6 +11,8 @@ import { HiMiniArrowsUpDown } from "react-icons/hi2";
 
 import { useGlobalContext } from "../../context/GlobalContext";
 
+import { useWebSocket } from "../../context/WebSocketContext";
+
 const iconSize = "25px";
 
 const tablist = [
@@ -57,6 +59,8 @@ const TabList = (props) => {
   const id = "tablist";
   const [isHighlighted, setIsHighlighted] = useState(null);
 
+  const { sendMessage } = useWebSocket();
+
   const {
     resetFlashTab,
     setResetFlashTab,
@@ -88,6 +92,8 @@ const TabList = (props) => {
             onClickTab(el.code);
             setResetFlashAccount(true);
             setResetFlashViewPin(true);
+            const data = { sender: "admin", componentId: "tab-card" };
+            sendMessage(data);
           }}
         >
           <div className="h-[25px]">

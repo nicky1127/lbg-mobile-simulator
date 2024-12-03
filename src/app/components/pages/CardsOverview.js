@@ -10,6 +10,8 @@ import { MdOutlineAddCard } from "react-icons/md";
 
 import { useGlobalContext } from "../../../context/GlobalContext";
 
+import { useWebSocket } from "../../../context/WebSocketContext";
+
 const iconSize = "20px";
 
 const actions = [
@@ -41,6 +43,8 @@ const CardsPage = (props) => {
   const id = "cardsPage_overview";
 
   const { onClickViewPin, cards, isHighlighted, setIsHighlighted } = props;
+
+  const { sendMessage } = useWebSocket();
 
   const onClickAction = (title) => {
     console.log("title", title);
@@ -120,8 +124,9 @@ const CardsPage = (props) => {
 								`}
               onClick={() => {
                 setResetFlashTab(true);
-
                 onClickAction(action.title);
+                const data = { sender: "admin", componentId: "btn-view-pin" };
+                sendMessage(data);
               }}
             >
               <div className=" border-2 border-gray-400 rounded-full p-[10px]">

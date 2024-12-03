@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 
 import CardsOverview from "./CardsOverview";
@@ -7,6 +7,8 @@ import CardsOverview from "./CardsOverview";
 import CardsViewPin from "./CardsViewPin";
 import CardsShowPin from "./CardsShowPin";
 import { switches } from "../../constants/switch";
+
+import { useGlobalContext } from "../../../context/GlobalContext";
 
 const cards = [
   {
@@ -28,6 +30,18 @@ const CardsPage = () => {
   const [isHighlighted, setIsHighlighted] = useState(null);
 
   console.log("stage", stage);
+
+  const { screen } = useGlobalContext();
+
+  useEffect(() => {
+    if (screen) {
+      switch (screen) {
+        case "screen-view-pin":
+          setstage("viewPin");
+          break;
+      }
+    }
+  }, [screen]);
 
   const onClickViewPin = () => {
     setIsHighlighted(1);

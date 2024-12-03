@@ -20,13 +20,13 @@ const ScreenContainer = () => {
   useEffect(() => {
     if (screen) {
       switch (screen) {
-        case "tab_home":
+        case "screen-home":
           setActiveTab("home");
           break;
-        case "tab_cards":
+        case "screen-card":
           setActiveTab("cards");
           break;
-        case "tab_search":
+        case "screen-search":
           setActiveTab("search");
           break;
       }
