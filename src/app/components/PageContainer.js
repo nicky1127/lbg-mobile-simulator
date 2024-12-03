@@ -16,7 +16,7 @@ const PageContainer = (props) => {
       {activeTab === "home" && (
         <HomePage onClickViewStatements={onClickViewStatements} />
       )}
-      {activeTab === "search" && <SearchPage />}
+      {activeTab === "assist" && <SearchPage />}
     </div>
   );
 };
