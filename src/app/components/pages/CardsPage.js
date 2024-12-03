@@ -6,6 +6,7 @@ import CardsOverview from "./CardsOverview";
 
 import CardsViewPin from "./CardsViewPin";
 import CardsShowPin from "./CardsShowPin";
+import { switches } from "../../constants/switch";
 
 const cards = [
   {
@@ -24,9 +25,13 @@ const CardsPage = () => {
   const [stage, setstage] = useState("overview");
   const [focalCard, setFocalCard] = useState(cards[0]);
 
+  const [isHighlighted, setIsHighlighted] = useState(null);
+
   console.log("stage", stage);
 
   const onClickViewPin = () => {
+    setIsHighlighted(1);
+    if (!switches.isAdvisorDriven) return;
     setstage("viewPin");
   };
 
@@ -40,7 +45,12 @@ const CardsPage = () => {
   return (
     <div id={id} className="flex flex-col h-full">
       {stage === "overview" && (
-        <CardsOverview onClickViewPin={onClickViewPin} cards={cards} />
+        <CardsOverview
+          onClickViewPin={onClickViewPin}
+          cards={cards}
+          isHighlighted={isHighlighted}
+          setIsHighlighted={setIsHighlighted}
+        />
       )}
       {stage === "viewPin" && (
         <CardsViewPin

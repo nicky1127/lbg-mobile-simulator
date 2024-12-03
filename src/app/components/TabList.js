@@ -62,6 +62,7 @@ const TabList = (props) => {
     setResetFlashTab,
     resetFlashAccount,
     setResetFlashAccount,
+    setResetFlashViewPin,
   } = useGlobalContext();
 
   useEffect(() => {
@@ -86,6 +87,7 @@ const TabList = (props) => {
             setIsHighlighted(index);
             onClickTab(el.code);
             setResetFlashAccount(true);
+            setResetFlashViewPin(true);
           }}
         >
           <div className="h-[25px]">
