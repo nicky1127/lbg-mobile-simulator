@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 
@@ -7,6 +7,10 @@ import { IoEyeOutline } from "react-icons/io5";
 import { IoSnow } from "react-icons/io5";
 import { MdOutlineCreditCardOff } from "react-icons/md";
 import { MdOutlineAddCard } from "react-icons/md";
+
+import { useGlobalContext } from "../../../context/GlobalContext";
+
+import { useWebSocket } from "../../../context/WebSocketContext";
 
 const iconSize = "20px";
 
@@ -38,7 +42,9 @@ const actions = [
 const CardsPage = (props) => {
   const id = "cardsPage_overview";
 
-  const { onClickViewPin, cards } = props;
+  const { onClickViewPin, cards, isHighlighted, setIsHighlighted } = props;
+
+  const { sendMessage } = useWebSocket();
 
   const onClickAction = (title) => {
     console.log("title", title);
@@ -47,6 +53,22 @@ const CardsPage = (props) => {
         return onClickViewPin();
     }
   };
+
+  const {
+    resetFlashTab,
+    setResetFlashTab,
+    resetFlashAccount,
+    setResetFlashAccount,
+    resetFlashViewPin,
+    setResetFlashViewPin,
+  } = useGlobalContext();
+
+  useEffect(() => {
+    if (resetFlashViewPin) {
+      setIsHighlighted(null);
+    }
+    setResetFlashViewPin(false);
+  }, [resetFlashViewPin]);
 
   return (
     <div id={id} className="flex flex-col h-full">
@@ -94,11 +116,18 @@ const CardsPage = (props) => {
         </div>
 
         <div className="grid grid-cols-3 gap-x-4  gap-y-6 px-[0px] py-[10px]">
-          {actions.map((action) => (
+          {actions.map((action, index) => (
             <div
               key={`${id}_${action.title}`}
-              className="flex flex-col justify-center items-center cursor-pointer"
-              onClick={() => onClickAction(action.title)}
+              className={`flex flex-col justify-center items-center cursor-pointer border-2 rounded-[5px] border-[#fff] 
+								${index === isHighlighted && " animate-flashingBorder"}
+								`}
+              onClick={() => {
+                setResetFlashTab(true);
+                onClickAction(action.title);
+                const data = { sender: "admin", componentId: "btn-view-pin" };
+                sendMessage(data);
+              }}
             >
               <div className=" border-2 border-gray-400 rounded-full p-[10px]">
                 {action.icon}

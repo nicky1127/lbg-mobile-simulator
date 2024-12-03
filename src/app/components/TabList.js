@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GoHomeFill } from "react-icons/go";
 import { GoHome } from "react-icons/go";
 import { LiaHandPointUp } from "react-icons/lia";
@@ -8,6 +8,10 @@ import { AiFillCreditCard } from "react-icons/ai";
 import { AiOutlineCreditCard } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io";
 import { HiMiniArrowsUpDown } from "react-icons/hi2";
+
+import { useGlobalContext } from "../../context/GlobalContext";
+
+import { useWebSocket } from "../../context/WebSocketContext";
 
 const iconSize = "25px";
 
@@ -55,6 +59,23 @@ const TabList = (props) => {
   const id = "tablist";
   const [isHighlighted, setIsHighlighted] = useState(null);
 
+  const { sendMessage } = useWebSocket();
+
+  const {
+    resetFlashTab,
+    setResetFlashTab,
+    resetFlashAccount,
+    setResetFlashAccount,
+    setResetFlashViewPin,
+  } = useGlobalContext();
+
+  useEffect(() => {
+    if (resetFlashTab) {
+      setIsHighlighted(null);
+    }
+    setResetFlashTab(false);
+  }, [resetFlashTab]);
+
   return (
     <div
       id={id}
@@ -69,6 +90,10 @@ const TabList = (props) => {
           onClick={() => {
             setIsHighlighted(index);
             onClickTab(el.code);
+            setResetFlashAccount(true);
+            setResetFlashViewPin(true);
+            const data = { sender: "admin", componentId: "tab-card" };
+            sendMessage(data);
           }}
         >
           <div className="h-[25px]">

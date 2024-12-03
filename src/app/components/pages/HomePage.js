@@ -8,6 +8,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import clsx from "clsx";
 import AccountOverview from "./AccountOverview";
 import AccountTransactions from "./AccountTransactions";
+import { switches } from "@/app/constants/switch";
 
 const HomePage = (props) => {
   const { onClickViewStatements } = props;
@@ -20,7 +21,7 @@ const HomePage = (props) => {
   };
 
   const onClickAccount = (account) => {
-    console.log("account", account);
+    if (!switches.isAdvisorDriven) return;
     account && setFocalAccount(account);
     setStage("viewTransactions");
   };
