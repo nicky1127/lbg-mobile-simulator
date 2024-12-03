@@ -8,6 +8,8 @@ import { IoEyeOutline } from "react-icons/io5";
 import { IoSnow } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa6";
 
+import { useWebSocket } from "../../../context/WebSocketContext";
+
 const cards = [
   {
     title: "LLOYDS BANK",
@@ -36,6 +38,8 @@ const actions = [
 
 const CardsPage = (props) => {
   const { onClickBack, onClickShowPin } = props;
+
+  const { sendMessage } = useWebSocket();
   const id = "cardsPage_overview";
   return (
     <div id={id} className="flex flex-col h-full relative">
@@ -71,7 +75,11 @@ const CardsPage = (props) => {
       <div id="applePayBtn Wrapper" className=" flex justify-center w-full">
         <div
           className="flex justify-center bg-[#000] w-[90%] p-[10px] m-[20px] rounded-[10px] font-bold cursor-pointer text-[#fff] text-[13px]"
-          onClick={onClickShowPin}
+          onClick={() => {
+            const data = { sender: "admin", componentId: "btn-show-pin" };
+            sendMessage(data);
+            // onClickShowPin();
+          }}
         >
           Show PIN
         </div>
