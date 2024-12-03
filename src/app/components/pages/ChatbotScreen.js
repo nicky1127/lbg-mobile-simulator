@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import { CgSmartphoneChip } from "react-icons/cg";
 import { TbUserFilled } from "react-icons/tb";
+import { FaMicrophone } from "react-icons/fa";  // Importing the microphone icon
 import clsx from "clsx";
 import { useGlobalContext } from "../../../context/GlobalContext";
 
@@ -146,6 +146,11 @@ const ChatboxScreen = (props) => {
             <div ref={dummyRef} />
           </div>
           <div className="flex items-center p-4 border-t border-gray-300 bg-white">
+            {/* Add the microphone icon */}
+            <FaMicrophone
+              className="mr-3 text-gray-500 cursor-pointer"
+              style={{ fontSize: '24px' }}  // Adjust the size of the icon
+            />
             <input
               type="text"
               placeholder="Type a message..."
