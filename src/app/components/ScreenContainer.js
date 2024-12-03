@@ -12,6 +12,7 @@ import { switches } from "../constants/switch";
 const ScreenContainer = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [appStatus, setAppStatus] = useState("inactive");
+  const [showStart, setShowStart] = useState(false);
 
   const { screen } = useGlobalContext();
 
@@ -28,6 +29,8 @@ const ScreenContainer = () => {
           break;
         case "screen-search":
           setActiveTab("search");
+        case "screen-start":
+          setShowStart(true);
           break;
       }
     }
@@ -60,7 +63,7 @@ const ScreenContainer = () => {
           id="statusBar"
           className="absolute z-[2] left-0 right-0 m-auto w-1/2 h-[30px] bg-darkGray rounded-tl-none rounded-tr-none rounded-bl-[20px] rounded-br-[20px]"
         />
-        {appStatus === "inactive" && (
+        {appStatus === "inactive" && showStart && (
           <InactiveScreen onClickStart={onClickStart} />
         )}
         {appStatus === "initiating" && <InitiationScreen />}
