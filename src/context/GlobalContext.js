@@ -6,6 +6,10 @@ const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
   const [user, setUser] = useState("Happy");
   const [theme, setTheme] = useState("light");
+  const [screen, setScreen] = useState("tab_home");
+  const [flashEnabled, setFlashEnabled] = useState(false);
+  const [resetFlashTab, setResetFlashTab] = useState(false);
+  const [resetFlashAccount, setResetFlashAccount] = useState(false);
 
   const toggleTheme = () =>
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
@@ -14,7 +18,22 @@ export const GlobalProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ user, theme, toggleTheme, login, logout, setUser }}
+      value={{
+        user,
+        theme,
+        toggleTheme,
+        login,
+        logout,
+        setUser,
+        screen,
+        setScreen,
+        flashEnabled,
+        setFlashEnabled,
+        resetFlashTab,
+        setResetFlashTab,
+        resetFlashAccount,
+        setResetFlashAccount,
+      }}
     >
       {children}
     </GlobalContext.Provider>

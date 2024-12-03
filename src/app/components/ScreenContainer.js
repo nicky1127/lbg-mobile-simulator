@@ -6,13 +6,35 @@ import InitiationScreen from "./InitiationScreen";
 import InactiveScreen from "./InactiveScreen";
 import StatementsPage from "./pages/StatementsPage";
 
+import { useGlobalContext } from "../../context/GlobalContext";
+import { switches } from "../constants/switch";
+
 const ScreenContainer = () => {
   const [activeTab, setActiveTab] = useState("home");
   const [appStatus, setAppStatus] = useState("inactive");
 
+  const { screen } = useGlobalContext();
+
   const [stage, setStage] = useState("tabs");
+
+  useEffect(() => {
+    if (screen) {
+      switch (screen) {
+        case "tab_home":
+          setActiveTab("home");
+          break;
+        case "tab_cards":
+          setActiveTab("cards");
+          break;
+        case "tab_search":
+          setActiveTab("search");
+          break;
+      }
+    }
+  }, [screen]);
+
   const onClickTab = (tab) => {
-    if (tab) setActiveTab(tab);
+    if (tab && switches.isAdvisorDriven) setActiveTab(tab);
   };
 
   const onClickViewStatements = () => {

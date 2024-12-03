@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useState, useEffect, useContext } from "react";
+import { useGlobalContext } from "./GlobalContext";
 
 // Create a WebSocket Context
 const WebSocketContext = createContext();
@@ -10,9 +11,11 @@ export const WebSocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [message, setMessage] = useState(null);
 
+  const { setScreen } = useGlobalContext();
+
   useEffect(() => {
     // Create WebSocket connection when the component mounts
-    const ws = new WebSocket("ws://your-websocket-server-url");
+    const ws = new WebSocket("ws://localhost:8080");
 
     ws.onopen = () => {
       console.log("WebSocket connected");
@@ -21,6 +24,8 @@ export const WebSocketProvider = ({ children }) => {
     ws.onmessage = (event) => {
       console.log("Received message:", event.data);
       setMessage(event.data); // Update the message state
+      const { sender, screen_id } = event?.data;
+      setScreen(sender);
     };
 
     ws.onclose = () => {

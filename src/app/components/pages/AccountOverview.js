@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 
 import Image from "next/image";
 import { GoMail } from "react-icons/go";
@@ -8,12 +10,30 @@ import { FaRegCircleQuestion } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { customerDetails, accounts } from "../../constants/constants";
 import clsx from "clsx";
+import { useGlobalContext } from "../../../context/GlobalContext";
 
 const options = ["Summary", "Everyday", "Save & Invest", "Borrow", "Insure"];
 
 const AccountOverview = (props) => {
-  const { onClickAccount } = props;
   const id = "accountOverview_account_overview";
+  const { onClickAccount } = props;
+
+  const [isHighlighted, setIsHighlighted] = useState(null);
+
+  const {
+    resetFlashTab,
+    setResetFlashTab,
+    resetFlashAccount,
+    setResetFlashAccount,
+  } = useGlobalContext();
+
+  useEffect(() => {
+    if (resetFlashAccount) {
+      setIsHighlighted(null);
+    }
+    setResetFlashAccount(false);
+  }, [resetFlashAccount]);
+
   return (
     <div id={id} className="h-full relative">
       <div
@@ -62,11 +82,17 @@ const AccountOverview = (props) => {
       </div>
       <div className="h-[550px] overflow-y-auto scrollbar-hide">
         <div id="accountWrapper">
-          {accounts.map((account) => (
+          {accounts.map((account, index) => (
             <div
               key={account.title}
-              className="rounded-[10px] bg-white p-[15px] m-[10px] cursor-pointer"
-              onClick={() => onClickAccount(account)}
+              className={`rounded-[10px] bg-white p-[15px] m-[10px] cursor-pointer border-2   border-[#fff] 
+									${index === isHighlighted && " animate-flashingBorder"}
+								`}
+              onClick={() => {
+                setIsHighlighted(index);
+                onClickAccount(account);
+                setResetFlashTab(true);
+              }}
             >
               <div className="flex justify-between">
                 <div className="flex items-center">
