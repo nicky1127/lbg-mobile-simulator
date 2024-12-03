@@ -35,6 +35,7 @@ const ScreenContainer = () => {
 
   const onClickTab = (tab) => {
     if (tab && switches.isAdvisorDriven) setActiveTab(tab);
+    // if (tab) setActiveTab(tab);
   };
 
   const onClickViewStatements = () => {
